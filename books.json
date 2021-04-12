@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "And Then There Were None",
+    "author": "Agatha Christie",
+    "pages": 272,
+    "rented": false
+  },
+  {
+    "id": 2,
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "pages": 689,
+    "rented": false
+  },
+  {
+    "id": 3,
+    "title": "Harry Potter and the Goblet of Fire",
+    "author": "J. K. Rowling",
+    "pages": 636,
+    "rented": false
+  },
+  {
+    "id": 4,
+    "title": "The Tale of Peter Rabbit",
+    "author": "Beatrix Potter",
+    "pages": 56,
+    "rented": false
+  },
+  {
+    "id": 5,
+    "title": "The Hunger Games",
+    "author": "Suzanne Collins",
+    "pages": 374,
+    "rented": false
+  },
+  {
+    "title": "My Book",
+    "author": "Gabrielle Kamph",
+    "pages": "5656",
+    "id": 6,
+    "rented": false
+  }
+]
