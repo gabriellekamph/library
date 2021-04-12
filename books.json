@@ -11,7 +11,7 @@
     "title": "The Da Vinci Code",
     "author": "Dan Brown",
     "pages": 689,
-    "rented": false
+    "rented": true
   },
   {
     "id": 3,

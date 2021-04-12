@@ -102,6 +102,7 @@ router.get("/bookInfo/:bookId", function(req, res) {
 
     let status;
     let button;
+    let deleteBook = "Delete book from library";
 
     for (book in books) {
       if (req.params.bookId == ":" + books[book].id) {
@@ -121,7 +122,9 @@ router.get("/bookInfo/:bookId", function(req, res) {
                     <b>Pages: </b>${books[book].pages} <br />
                     <b>Status: </b>${status} <br /><br />
                     
-                    <a href='/books/borrow/:${books[book].id}'><button>${button}</button></a><br /></div>`
+                    <a href='/books/borrow/:${books[book].id}'><button>${button}</button></a>
+                    <a href='/books/deleteBook/:${books[book].id}'><button>${deleteBook}</button></a><br />
+                    </div>`
     
       }
      }
@@ -164,5 +167,44 @@ router.get("/borrow/:bookId", function(req, res) {
   });
 });
 
+
+
+
+
+// GET Router to delete book from library
+
+router.get("/deleteBook/:bookId", function(req, res) {
+
+  fs.readFile("books.json", function(err, data) {
+    if (err) {
+      console.log(err);
+    }
+
+    const books = JSON.parse(data);
+
+    for (book in books) {
+
+      if (req.params.bookId == ":" + books[book].id) {
+        let id = books[book].id;
+    
+        for (let i = 0; i < books.length; i++) {
+          if (books[i].id == id) {
+            books.splice(i, 1);
+            break;
+          }
+        }
+      }
+    }
+
+    fs.writeFile("books.json", JSON.stringify(books, null, 2), function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+
+    res.redirect("/books");  
+
+  });
+});
 
 module.exports = router;
